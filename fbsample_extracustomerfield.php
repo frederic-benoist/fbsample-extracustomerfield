@@ -33,6 +33,7 @@ class FbSample_ExtraCustomerField extends Module
         $this->version = '1.0.0';
         $this->need_instance= 0;
         $this->bootstrap = true;
+        $this->tab = 'others';
         parent::__construct();
 
         $this->displayName = $this->l('Extra customer field');
@@ -45,7 +46,7 @@ class FbSample_ExtraCustomerField extends Module
 
     /**
      * Install module
-     * 
+     *
      * @return bool true if success
      */
     public function install()
@@ -68,7 +69,7 @@ class FbSample_ExtraCustomerField extends Module
 
     /**
      * Alter customer table, add module fields
-     * 
+     *
      * @return bool true if success or already done.
      */
     protected function alterCustomerTable()
@@ -126,7 +127,7 @@ class FbSample_ExtraCustomerField extends Module
             ->setName('hobbies')
             ->setType('text')
             ->setValue($hobbies_value)
-            ->setLabel($this->trans('Hobbies', [], 'Modules.AdvCustomer.Shop'));
+            ->setLabel($this->l('Hobbies'));
 
         return $extra_fields;
     }
@@ -141,13 +142,12 @@ class FbSample_ExtraCustomerField extends Module
     public function hookvalidateCustomerFormFields($params)
     {
         $module_fields = $params['fields'];
-        if (
-            'Dance' != $module_fields[0]->getValue()
+        if ('Dance' != $module_fields[0]->getValue()
             && 'Shopping' != $module_fields[0]->getValue()
             && 'Yoga' != $module_fields[0]->getValue()
         ) {
             $module_fields[0]->addError(
-                $this->trans('Only "Dance", "Shopping" or "Yoga"', [], 'Modules.AdvCustomer.Shop')
+                $this->l('Only "Dance", "Shopping" or "Yoga"')
             );
         }
         return array(
