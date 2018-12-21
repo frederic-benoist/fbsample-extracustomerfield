@@ -1,4 +1,4 @@
-# PrestaShop 1.7 Extra customer field in PrestaShop 1.7 Module
+# Extra customer field in PrestaShop 1.7 Module
 
 Add extra customer field in PrestaShop 1.7.
 
