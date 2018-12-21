@@ -1,0 +1,21 @@
+{
+    "name": "frederic-benoist/fbsample_extracustomerfield",
+    "description": "Extra customer field in PrestaShop 1.7 Module",
+    "authors": [
+      {
+        "name": "Frédéric BENOIST",
+        "email": "info@fbenoist.com",
+        "homepage": "https://www.fbenoist.com/"
+      }
+    ],
+    "require": {
+      "php": ">=5.6.0"
+    },
+    "config": {
+      "preferred-install": "dist"
+    },
+    "type": "prestashop-module",
+    "license": "AFL-3.0",
+    "homepage": "https://github.com/frederic-benoist/fbsample-extracustomerfield"
+  }
+  
