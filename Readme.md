@@ -4,6 +4,8 @@ Add extra customer field in PrestaShop 1.7.
 
 ==For PrestaShop Development training only.==
 
+Add {hook h='displayMyExtraValue' id_customer=$customer->id} to show extra value in templates.
+
 ### Prerequisites
 
 - You need a shop with **PrestaShop 1.7.0.0** or higher.
