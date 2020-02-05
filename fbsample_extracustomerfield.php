@@ -50,6 +50,7 @@ class FbSample_ExtraCustomerField extends Module
 
         if (!parent::install()
             || !$this->alterCustomerTable()
+            || !$this->registerHook('displayMyExtraValue')
             || !$this->registerHook('additionalCustomerFormFields')
             || !$this->registerHook('validateCustomerFormFields')
             || !$this->registerHook('actionObjectCustomerUpdateAfter')
@@ -164,5 +165,14 @@ class FbSample_ExtraCustomerField extends Module
     {
         $id = (int)$params['object']->id;
         $this->writeModuleValues($id);
+    }
+
+    public function hookDisplayMyExtraValue($params)
+    {
+        $id_customer = (int)$params['id_customer'];
+        $query = 'SELECT c.`hobbies`'
+            .' FROM `'. _DB_PREFIX_.'customer` c '
+            .' WHERE c.id_customer = '.(int)$id_customer;
+        return  Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($query);
     }
 }
